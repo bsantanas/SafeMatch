@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Connections-->
+        <!--Connections View Controller-->
         <scene sceneID="PEt-qe-VBT">
             <objects>
                 <viewController id="CfM-8S-lVT" customClass="ConnectionsViewController" customModule="SafeMatch" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,27 +52,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type the device name you want to display..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pW1-0E-sU0">
-                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <rect key="frame" x="16" y="72" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visible to others?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWd-67-Oo2">
-                                <rect key="frame" x="16" y="58" width="511" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="sUO-qC-0Tx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L23-Xz-FOL">
-                                <rect key="frame" x="535" y="58" width="51" height="31"/>
+                                <rect key="frame" x="535" y="110" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleVisibility:" destination="CfM-8S-lVT" eventType="valueChanged" id="2Bn-EZ-XxX"/>
                                 </connections>
                             </switch>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yYM-Uy-yAv">
-                                <rect key="frame" x="0.0" y="135" width="600" height="370"/>
+                                <rect key="frame" x="0.0" y="187" width="600" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeerCell" textLabel="kvj-eU-qVB" style="IBUITableViewCellStyleDefault" id="G51-eF-46P">
@@ -88,6 +79,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="urD-o4-0v6" kind="show" id="IIy-mO-8hV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -96,8 +90,8 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfb-3Z-Jd9">
-                                <rect key="frame" x="246" y="97" width="109" height="30"/>
-                                <state key="normal" title="Browse devices">
+                                <rect key="frame" x="238" y="149" width="124" height="30"/>
+                                <state key="normal" title="Browse matchers!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -113,12 +107,21 @@
                                     <action selector="disconnect:" destination="CfM-8S-lVT" eventType="touchUpInside" id="ISS-jA-acs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visible to others?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWd-67-Oo2">
+                                <rect key="frame" x="16" y="110" width="511" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="sUO-qC-0Tx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="aNy-7M-nHK" secondAttribute="centerX" id="4Ev-UX-AoB"/>
-                            <constraint firstItem="pW1-0E-sU0" firstAttribute="top" secondItem="6qH-wF-CQ9" secondAttribute="bottom" id="6sk-eW-hgo"/>
                             <constraint firstItem="Bfb-3Z-Jd9" firstAttribute="top" secondItem="BWd-67-Oo2" secondAttribute="bottom" constant="8" id="ALU-yH-j8m"/>
+                            <constraint firstItem="pW1-0E-sU0" firstAttribute="top" secondItem="6qH-wF-CQ9" secondAttribute="bottom" constant="8" id="C84-3b-Wgs"/>
                             <constraint firstItem="aNy-7M-nHK" firstAttribute="top" secondItem="yYM-Uy-yAv" secondAttribute="bottom" constant="8" id="Dsl-4Y-tmA"/>
                             <constraint firstItem="L23-Xz-FOL" firstAttribute="leading" secondItem="BWd-67-Oo2" secondAttribute="trailing" constant="8" id="Fqb-Jf-jTm"/>
                             <constraint firstItem="yYM-Uy-yAv" firstAttribute="leading" secondItem="v0Q-X1-EAf" secondAttribute="leadingMargin" constant="-16" id="JD8-nE-mYh"/>
@@ -134,7 +137,7 @@
                             <constraint firstItem="90u-BI-ktI" firstAttribute="top" secondItem="aNy-7M-nHK" secondAttribute="bottom" constant="8" id="zHu-2u-Sak"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Connections" id="Lit-j3-pi4"/>
+                    <navigationItem key="navigationItem" id="Um8-ZB-iyK"/>
                     <connections>
                         <outlet property="buttonDisconnect" destination="aNy-7M-nHK" id="riU-oL-WY3"/>
                         <outlet property="switchVisible" destination="L23-Xz-FOL" id="Djz-eg-ct2"/>
@@ -144,7 +147,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct9-XV-Vtr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="345"/>
+            <point key="canvasLocation" x="1562" y="345"/>
+        </scene>
+        <!--Waiting View Controller-->
+        <scene sceneID="kcG-d6-UQn">
+            <objects>
+                <viewController id="urD-o4-0v6" customClass="WaitingViewController" customModule="SafeMatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDZ-Bh-vC9"/>
+                        <viewControllerLayoutGuide type="bottom" id="fM0-hO-ikV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t10-Cw-Bh0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for response" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jga-sx-gwv">
+                                <rect key="frame" x="221" y="289" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="jga-sx-gwv" secondAttribute="centerY" id="fSA-DU-SrV"/>
+                            <constraint firstAttribute="centerX" secondItem="jga-sx-gwv" secondAttribute="centerX" id="q8a-rU-qHT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHp-Pc-XqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2326" y="345"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -157,13 +190,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="CfM-8S-lVT" kind="relationship" relationship="viewControllers" id="nC3-hU-txo"/>
+                        <segue destination="3tu-mQ-S0I" kind="relationship" relationship="viewControllers" id="LJM-pW-20m"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="BqB-F0-rBt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-194" y="2"/>
+        </scene>
+        <!--Connections-->
+        <scene sceneID="oY9-XW-ItN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3tu-mQ-S0I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Connections" id="Lit-j3-pi4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pfA-Cf-6T4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CfM-8S-lVT" kind="relationship" relationship="rootViewController" id="C0b-Wi-1lW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBJ-41-zdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="345"/>
         </scene>
     </scenes>
     <resources>

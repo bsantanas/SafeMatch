@@ -19,12 +19,12 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.bum.safematch", optionalDirectory: "wormhole")
-        wormhole.listenForMessageWithIdentifier("messageIdentifier", listener: { (messageObject) -> Void in
-            if let message: AnyObject = messageObject {
-                // Do something
-            }
-        })
+//        let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.bum.safematch", optionalDirectory: "wormhole")
+//        wormhole.listenForMessageWithIdentifier("messageIdentifier", listener: { (messageObject) -> Void in
+//            if let message: AnyObject = messageObject {
+//                // Do something
+//            }
+//        })
         
         // Configure interface objects here.
         populateTable()

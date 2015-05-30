@@ -20,10 +20,12 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
         appDelegate?.mcManager?.setupPeerAndSessionWith(UIDevice.currentDevice().name)
         appDelegate?.mcManager?.advertiseSelf(switchVisible.on)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MCDidReceiveDataNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "peerDidChangeStateNotification:", name: "MCDidChangeStateNotification", object: nil)
     }
@@ -96,6 +98,58 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
 
         return cell
     }
+    
+    func didReceiveDataWithNotification(notification:NSNotification) {
+        
+        if let dict = notification.userInfo as? [String:AnyObject] {
+            if let peerID = dict["peerID"] as? MCPeerID,
+                let receivedData = dict["data"] as? NSData {
+                    let peerDisplayName = peerID.displayName
+                    let receivedText = NSString(data: receivedData, encoding: NSUTF8StringEncoding)
+                    
+                    let notifyAlarm = UILocalNotification()
+                    let alertTime = NSDate(timeIntervalSinceNow: 5)
+                    notifyAlarm.fireDate = alertTime
+                    notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
+                    notifyAlarm.alertBody = "Staff meeting in 30 minutes"
+                    UIApplication.sharedApplication().scheduleLocalNotification(notifyAlarm)
+                    UIApplication.sharedApplication().presentLocalNotificationNow(notifyAlarm)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if UIApplication.sharedApplication().applicationState == .Active {
+                            self.makeAlertWithText(receivedText!)
+                        }
+                        self.sendLocalNotification()
+                    })
+                    
+            }
+        }
+    }
+    
+    func makeAlertWithText(text:NSString) {
+        let alert = UIAlertController(title: "Hey", message: text as String, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Sure!", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Approval Logic here")
+        }))
+        alert.addAction(UIAlertAction(title: "No, thanks", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Cancel Logic here")
+        }))
+        
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func sendLocalNotification() {
+        let notifyAlarm = UILocalNotification()
+        let alertTime = NSDate(timeIntervalSinceNow: 5)
+        notifyAlarm.fireDate = alertTime
+        notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
+        notifyAlarm.alertBody = "Hi! I'm clean 😀"
+        //UIApplication.sharedApplication().scheduleLocalNotification(notifyAlarm)
+        UIApplication.sharedApplication().presentLocalNotificationNow(notifyAlarm)
+    }
+
     
     
 

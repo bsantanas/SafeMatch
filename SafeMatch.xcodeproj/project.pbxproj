@@ -26,6 +26,7 @@
 		640CD6CC1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6CB1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift */; };
 		640CD6D01B1A389800D95EC1 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6CF1B1A389800D95EC1 /* MMWormhole.m */; };
 		640CD6D51B1A3B9F00D95EC1 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6D41B1A3B9F00D95EC1 /* MMWormhole.m */; };
+		64AFC1931B1A49CC00614D86 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AFC1921B1A49CC00614D86 /* WaitingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		640CD6D21B1A3B9E00D95EC1 /* SafeMatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SafeMatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		640CD6D31B1A3B9F00D95EC1 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
 		640CD6D41B1A3B9F00D95EC1 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		64AFC1921B1A49CC00614D86 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				640CD6851B1954F400D95EC1 /* LaunchScreen.xib */,
 				640CD6781B1954F400D95EC1 /* Supporting Files */,
 				640CD69E1B19C45E00D95EC1 /* MCManager.swift */,
+				64AFC1921B1A49CC00614D86 /* WaitingViewController.swift */,
 			);
 			path = SafeMatch;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			files = (
 				640CD69D1B19553E00D95EC1 /* ConnectionsViewController.swift in Sources */,
 				640CD6D01B1A389800D95EC1 /* MMWormhole.m in Sources */,
+				64AFC1931B1A49CC00614D86 /* WaitingViewController.swift in Sources */,
 				640CD67B1B1954F400D95EC1 /* AppDelegate.swift in Sources */,
 				640CD67D1B1954F400D95EC1 /* FirstViewController.swift in Sources */,
 				640CD69F1B19C45E00D95EC1 /* MCManager.swift in Sources */,
