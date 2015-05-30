@@ -19,6 +19,9 @@ class FirstViewController: UIViewController {
         appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MCDidReceiveDataNotification", object: nil)
+        
+        let wormhole = MMWormhole(applicationGroupIdentifier: "group.com.bum.safematch", optionalDirectory: "wormhole")
+        wormhole.passMessageObject("titleString", identifier: "messageIdentifier")
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,8 @@
 		640CD6BF1B1A011600D95EC1 /* SafeMatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 640CD6A41B1A011600D95EC1 /* SafeMatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		640CD6C81B1A043500D95EC1 /* UsersTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6C71B1A043500D95EC1 /* UsersTableRowController.swift */; };
 		640CD6CC1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6CB1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift */; };
+		640CD6D01B1A389800D95EC1 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6CF1B1A389800D95EC1 /* MMWormhole.m */; };
+		640CD6D51B1A3B9F00D95EC1 /* MMWormhole.m in Sources */ = {isa = PBXBuildFile; fileRef = 640CD6D41B1A3B9F00D95EC1 /* MMWormhole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,13 @@
 		640CD6BB1B1A011600D95EC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		640CD6C71B1A043500D95EC1 /* UsersTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableRowController.swift; sourceTree = "<group>"; };
 		640CD6CB1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalInterfaceController.swift; sourceTree = "<group>"; };
+		640CD6CD1B1A389700D95EC1 /* SafeMatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SafeMatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		640CD6CE1B1A389800D95EC1 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		640CD6CF1B1A389800D95EC1 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
+		640CD6D11B1A396700D95EC1 /* SafeMatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SafeMatch.entitlements; sourceTree = "<group>"; };
+		640CD6D21B1A3B9E00D95EC1 /* SafeMatch WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SafeMatch WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		640CD6D31B1A3B9F00D95EC1 /* MMWormhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWormhole.h; sourceTree = "<group>"; };
+		640CD6D41B1A3B9F00D95EC1 /* MMWormhole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWormhole.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +150,7 @@
 		640CD6771B1954F400D95EC1 /* SafeMatch */ = {
 			isa = PBXGroup;
 			children = (
+				640CD6D11B1A396700D95EC1 /* SafeMatch.entitlements */,
 				640CD67A1B1954F400D95EC1 /* AppDelegate.swift */,
 				640CD67C1B1954F400D95EC1 /* FirstViewController.swift */,
 				640CD69C1B19553E00D95EC1 /* ConnectionsViewController.swift */,
@@ -156,7 +166,10 @@
 		640CD6781B1954F400D95EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				640CD6CE1B1A389800D95EC1 /* MMWormhole.h */,
+				640CD6CF1B1A389800D95EC1 /* MMWormhole.m */,
 				640CD6791B1954F400D95EC1 /* Info.plist */,
+				640CD6CD1B1A389700D95EC1 /* SafeMatch-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -194,8 +207,11 @@
 		640CD6A61B1A011600D95EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				640CD6D31B1A3B9F00D95EC1 /* MMWormhole.h */,
+				640CD6D41B1A3B9F00D95EC1 /* MMWormhole.m */,
 				640CD6A71B1A011600D95EC1 /* Info.plist */,
 				640CD6A81B1A011600D95EC1 /* PushNotificationPayload.apns */,
+				640CD6D21B1A3B9E00D95EC1 /* SafeMatch WatchKit Extension-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -303,6 +319,11 @@
 					640CD6741B1954F400D95EC1 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = ZWFMSTZAVW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					640CD68B1B1954F400D95EC1 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -383,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				640CD69D1B19553E00D95EC1 /* ConnectionsViewController.swift in Sources */,
+				640CD6D01B1A389800D95EC1 /* MMWormhole.m in Sources */,
 				640CD67B1B1954F400D95EC1 /* AppDelegate.swift in Sources */,
 				640CD67D1B1954F400D95EC1 /* FirstViewController.swift in Sources */,
 				640CD69F1B19C45E00D95EC1 /* MCManager.swift in Sources */,
@@ -402,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				640CD6AC1B1A011600D95EC1 /* NotificationController.swift in Sources */,
+				640CD6D51B1A3B9F00D95EC1 /* MMWormhole.m in Sources */,
 				640CD6C81B1A043500D95EC1 /* UsersTableRowController.swift in Sources */,
 				640CD6CC1B1A0F7A00D95EC1 /* ApprovalInterfaceController.swift in Sources */,
 				640CD6AA1B1A011600D95EC1 /* InterfaceController.swift in Sources */,
@@ -543,12 +566,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SafeMatch/SafeMatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SafeMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch/SafeMatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -557,12 +584,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SafeMatch/SafeMatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SafeMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch/SafeMatch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -642,6 +672,7 @@
 		640CD6C41B1A011600D95EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -652,18 +683,22 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch WatchKit Extension/SafeMatch WatchKit Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		640CD6C51B1A011600D95EC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SafeMatch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch WatchKit Extension/SafeMatch WatchKit Extension-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -686,6 +721,7 @@
 				640CD6981B1954F400D95EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		640CD6991B1954F400D95EC1 /* Build configuration list for PBXNativeTarget "SafeMatchTests" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +730,7 @@
 				640CD69B1B1954F400D95EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		640CD6C01B1A011600D95EC1 /* Build configuration list for PBXNativeTarget "SafeMatch WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -702,6 +739,7 @@
 				640CD6C21B1A011600D95EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		640CD6C31B1A011600D95EC1 /* Build configuration list for PBXNativeTarget "SafeMatch WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -710,6 +748,7 @@
 				640CD6C51B1A011600D95EC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
