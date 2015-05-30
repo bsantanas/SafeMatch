@@ -29,12 +29,20 @@ class FirstViewController: UIViewController {
     @IBAction func sendMyState() {
         
         let dataToSend = "Hi, I'm clean. Fuck me.".dataUsingEncoding(NSUTF8StringEncoding)
-        let allPeers = appDelegate?.mcManager?.session?.connectedPeers
+        if let allPeers = appDelegate?.mcManager?.session?.connectedPeers {
+            let error : NSError?
+            appDelegate!.mcManager!.session!.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: nil)
+        }
         
-        let error : NSError?
         
-        let hola = appDelegate?.mcManager!.session
-        appDelegate!.mcManager!.session!.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: nil)
+        let notifyAlarm = UILocalNotification()
+        let alertTime = NSDate(timeIntervalSinceNow: 5)
+        notifyAlarm.fireDate = alertTime
+        notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
+        notifyAlarm.alertBody = "Staff meeting in 30 minutes"
+        UIApplication.sharedApplication().scheduleLocalNotification(notifyAlarm)
+        
+        //UIApplication.sharedApplication().presentLocalNotificationNow(notifyAlarm)
         
     }
     

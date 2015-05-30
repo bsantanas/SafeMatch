@@ -1,7 +1,8 @@
 {
     "aps": {
+        "username" : "Milos",
         "alert": {
-            "body": "User X would like to safely match!",
+            "body": "User would like to safely match!",
             "title": "Optional title"
         },
         "category": "myCategory"

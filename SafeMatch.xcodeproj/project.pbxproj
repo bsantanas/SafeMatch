@@ -81,7 +81,7 @@
 		640CD6A71B1A011600D95EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		640CD6A81B1A011600D95EC1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		640CD6A91B1A011600D95EC1 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		640CD6AB1B1A011600D95EC1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		640CD6AB1B1A011600D95EC1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationController.swift; path = "SafeMatch WatchKit Extension/NotificationController.swift"; sourceTree = SOURCE_ROOT; };
 		640CD6AD1B1A011600D95EC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		640CD6B11B1A011600D95EC1 /* SafeMatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SafeMatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		640CD6B71B1A011600D95EC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		640CD6A51B1A011600D95EC1 /* SafeMatch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				640CD6A91B1A011600D95EC1 /* InterfaceController.swift */,
 				640CD6AB1B1A011600D95EC1 /* NotificationController.swift */,
+				640CD6A91B1A011600D95EC1 /* InterfaceController.swift */,
 				640CD6AD1B1A011600D95EC1 /* Images.xcassets */,
 				640CD6A61B1A011600D95EC1 /* Supporting Files */,
 				640CD6C71B1A043500D95EC1 /* UsersTableRowController.swift */,

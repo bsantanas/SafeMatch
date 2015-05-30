@@ -44,7 +44,15 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        
         return users[rowIndex]
+    }
+    
+    
+    override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
+        
+        // Receives action from notification
+        println("asdah")
     }
     
 }

@@ -42,7 +42,7 @@
                 <controller id="PCe-ab-YoO" customClass="ApprovalInterfaceController" customModule="SafeMatch_WatchKit_Extension">
                     <items>
                         <label alignment="center" text="User" id="RKY-Jh-YhF"/>
-                        <imageView width="136" height="111" alignment="left" id="1RR-zh-LmS"/>
+                        <button width="1" alignment="left" title="Button" id="rTH-TX-NDz"/>
                     </items>
                     <connections>
                         <outlet property="userLabel" destination="RKY-Jh-YhF" id="AUZ-Uz-eNs"/>
@@ -74,6 +74,9 @@
                     <items>
                         <label width="1" height="65" alignment="left" text="User X would like to safely match!" textAlignment="center" numberOfLines="3" id="ojv-Z7-y61"/>
                     </items>
+                    <connections>
+                        <outlet property="messageLabel" destination="ojv-Z7-y61" id="by1-my-iw3"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
