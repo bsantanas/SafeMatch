@@ -10,14 +10,22 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var backgroundTask : UIBackgroundTaskIdentifier?
     var window: UIWindow?
     var mcManager:MCManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-    if UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))
+        // Register for push in iOS 8
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+        
+        
+        if UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))
         {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Alert | .Badge, categories: nil))
         }
@@ -36,16 +44,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.backgroundTask = application.beginBackgroundTaskWithExpirationHandler({
+            
+            //Here: Kill the session, advertisers, nil its delegates,
+            //      which should correctly send a disconnect signal to other peers
+            //      it's important if we want to be able to reconnect later,
+            //      as the MC framework is still buggy
+            application.endBackgroundTask(self.backgroundTask!)
+            self.backgroundTask = UIBackgroundTaskInvalid
+        })
+            
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        application.endBackgroundTask(self.backgroundTask!)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // Here: We should init back the session, start the advertising and set the delegates from scratch
+        // This should allow the app to reconnect to the same session with more often than not
+        self.backgroundTask = UIBackgroundTaskInvalid; //Here we invalidate the background task if the timer didn't end already
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -53,9 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
-        println("hola")
+        println("received a request from watch")
     }
-
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        println("My token is: \(deviceToken)")
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println("Failed to get token, error: \(error)")
+    }
 
 }
 

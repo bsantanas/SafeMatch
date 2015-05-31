@@ -326,6 +326,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 						};
 					};
 					640CD68B1B1954F400D95EC1 = {
@@ -573,11 +576,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SafeMatch/SafeMatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kelvin Lockwood (HDFBM5R4C2)";
 				INFOPLIST_FILE = SafeMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "00d3c530-cdd6-44b2-9de5-0fecace5443e";
 				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch/SafeMatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -591,11 +594,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SafeMatch/SafeMatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kelvin Lockwood (HDFBM5R4C2)";
 				INFOPLIST_FILE = SafeMatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "00d3c530-cdd6-44b2-9de5-0fecace5443e";
 				SWIFT_OBJC_BRIDGING_HEADER = "SafeMatch/SafeMatch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

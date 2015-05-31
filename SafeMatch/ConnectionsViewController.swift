@@ -28,6 +28,12 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MCDidReceiveDataNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "peerDidChangeStateNotification:", name: "MCDidChangeStateNotification", object: nil)
+        
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateTable", userInfo: nil, repeats: true)
+    }
+    
+    func updateTable() {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,19 +113,13 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
                     let peerDisplayName = peerID.displayName
                     let receivedText = NSString(data: receivedData, encoding: NSUTF8StringEncoding)
                     
-                    let notifyAlarm = UILocalNotification()
-                    let alertTime = NSDate(timeIntervalSinceNow: 5)
-                    notifyAlarm.fireDate = alertTime
-                    notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
-                    notifyAlarm.alertBody = "Staff meeting in 30 minutes"
-                    UIApplication.sharedApplication().scheduleLocalNotification(notifyAlarm)
-                    UIApplication.sharedApplication().presentLocalNotificationNow(notifyAlarm)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         if UIApplication.sharedApplication().applicationState == .Active {
                             self.makeAlertWithText(receivedText!)
                         }
-                        self.sendLocalNotification()
+                        self.sendLocalNotification(receivedText!)
+                        
                     })
                     
             }
@@ -140,12 +140,12 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func sendLocalNotification() {
+    func sendLocalNotification(text:NSString) {
         let notifyAlarm = UILocalNotification()
         let alertTime = NSDate(timeIntervalSinceNow: 5)
         notifyAlarm.fireDate = alertTime
         notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
-        notifyAlarm.alertBody = "Hi! I'm clean 😀"
+        notifyAlarm.alertBody = text as String
         //UIApplication.sharedApplication().scheduleLocalNotification(notifyAlarm)
         UIApplication.sharedApplication().presentLocalNotificationNow(notifyAlarm)
     }
